@@ -1,7 +1,10 @@
 import Head from "next/head";
-import Link from "next/link";
 import { replies } from "/data";
 import { useState } from "react";
+import Header from "/components/Header.js";
+import Footer from "/components/Footer";
+import CookieStand from "components/CookieStand";
+import ResultsTable from "components/ResultsTable";
 
 export default function Home() {
   const [locations, setLocations] = useState([]);
@@ -10,14 +13,14 @@ export default function Home() {
     e.preventDefault();
 
     const location = {
-        city: e.target.city.value,
-        minCustomers: e.target.minCustomers.value,
-        maxCustomers: e.target.maxCustomers.value,
-        avgCookies: e.target.avgCookies.value,
-      };
+      city: e.target.city.value,
+      minCustomers: e.target.minCustomers.value,
+      maxCustomers: e.target.maxCustomers.value,
+      avgCookies: e.target.avgCookies.value,
+    };
 
-      setLocations([...locations, city])
-    }
+    setLocations([...locations, city]);
+  }
 
   return (
     <>
@@ -28,93 +31,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex items-center justify-between p-4 text-4xl bg-green-400 text-black-50">
-        <h1 className="text-3xl font-medium">Cookie Stand Admin</h1>
-      </header>
+      <Header />
 
       <main className="">
-        {/* Create Cookie Stand */}
-        <div className="flex flex-row items-center justify-center">
-          <div className="justify-center w-5/6 p-0 m-8 text-2xl bg-green-400 rounded-lg">
-            <form
-              className="flex flex-col p-4 m-4 rounded-l "
-              onSubmit={questionAskedHandler}
-            >
-              <h2 className="flex flex-col items-center pb-8 text-2xl font-medium text-black-300 ">
-                Create Cookie Stand
-              </h2>
-              <div className="flex flex-row items-center justify-center rounded-l">
-                <p className="pr-5"> Location </p>
-                <input name="question" className="w-full" />
-              </div>
-            </form>
-            <div className="flex flex-row items-center justify-center rounded-l m3 sp-4">
-              <form
-                className="flex flex-col items-center m-4 rounded-l sp-4"
-                onSubmit={questionAskedHandler}
-              >
-                <h2 className="flex flex-col items-center pb-3 text-base font-medium text-black-300 ">
-                  Minimum Customers Per Hour
-                </h2>
-                <input name="question" className="max-w-6xl" />
-              </form>
+        <CookieStand questionAskedHandler={questionAskedHandler} />
+        
+        <ResultsTable locations={locations} />
 
-              <form
-                className="flex flex-col items-center m-4 rounded-l sp-4"
-                onSubmit={questionAskedHandler}
-              >
-                <h2 className="flex flex-col items-center pb-3 text-base font-medium text-black-300 ">
-                  Maximum Customers Per Hour
-                </h2>
-                <input name="question" className="max-w-6xl" />
-              </form>
-
-              <form
-                className="flex flex-col items-center m-4 rounded-l sp-4"
-                onSubmit={questionAskedHandler}
-              >
-                <h2 className="flex flex-col items-center pb-3 text-base font-medium text-black-300 ">
-                  Average Cookies per Sale
-                </h2>
-                <input name="question" className="max-w-6xl" />
-              </form>
-
-              <form
-                className="flex flex-col items-center p-2"
-                onSubmit={questionAskedHandler}
-              >
-                <button className="h-24 p-4 m-4 text-2xl font-normal bg-green-600 square-lg w-96">
-                  Create
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <h2 className="flex flex-row items-center justify-center">
-          Report Table Coming Soon...
-        </h2>
-         {/* Table of Responses */}
-         <table className="w-1/2 mx-auto my-4">
-              <tbody>
-                  {
-                    locations.map((item, idx) => {
-                      return (
-                        <tr key={idx}>
-                          <td className="font-light">Location: {item.city}</td>
-                          <td className="">minCustomer:{item.minCustomers}</td>
-                          <td className="">maxCustomer:{item.maxCustomers}</td>
-                          <td className="">avgCookies:{item.avgCookies}</td>
-                      </tr>
-                      )
-                    })
-                  }
-              </tbody>
-          </table>
       </main>
 
-      <footer className="p-4 mt-8 bg-green-400 text-black-50">
-        <Link href="/careers">© 2023</Link>
-      </footer>
+      <Footer />
     </>
   );
 }
