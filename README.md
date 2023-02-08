@@ -1,4 +1,4 @@
-# DESHON DIXON LAB 37: Cookie Stand Admin
+# DESHON DIXON: LAB 37: Cookie Stand Admin
 
 ## Getting Started
 
