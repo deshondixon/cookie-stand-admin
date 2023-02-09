@@ -1,4 +1,4 @@
-# DESHON DIXON: LAB 38: Cookie Stand Admin
+# DESHON DIXON: LAB 38: Cookie Stand Admin Version 2
 
 ## Getting Started
 
