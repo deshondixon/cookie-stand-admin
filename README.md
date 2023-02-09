@@ -1,8 +1,12 @@
-# DESHON DIXON: LAB 37: Cookie Stand Admin
+# DESHON DIXON: LAB 38: Cookie Stand Admin
 
 ## Getting Started
 
-First, run the development server:
+Download npm
+
+    npm install -g npm
+
+Run the development server:
 
 ```bash
 npm run dev
