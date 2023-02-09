@@ -1,3 +1,4 @@
+import { hours } from '/data';
 import { useState } from 'react';
 import Head from 'components/Head';
 import Header from '/components/Header';
@@ -31,7 +32,7 @@ export default function Home() {
         <ReportTable locations={locations} />
       </main>
 
-      <Footer />
+      <Footer questionAskedHandler={questionAskedHandler} />
     </>
   );
 }
