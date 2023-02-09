@@ -9,7 +9,7 @@ import CreateForm from 'components/CreateForm';
 export default function Home() {
   const [locations, setLocations] = useState([]);
 
-  function nquestionAskedHandler(e) {
+  function questionAskedHandler(e) {
     e.preventDefault();
     const location = {
       name: e.target.locationName.value,
