@@ -1,64 +1,22 @@
+import Head from 'next/head';
 import { useAuth } from '/context/auth';
-import { useState } from 'react';
-import Head from 'components/Head';
-import Header from '/components/Header';
-import Footer from '/components/Footer';
-import ReportTable from 'components/ReportTable';
-import CreateForm from 'components/CreateForm';
-import useResource from '../hooks/useResource';
+import CookieStandAdmin from '/components/CookieStandAdmin';
+import LoginForm from '/components/LoginForm';
 
 export default function Home() {
-  const { user, login } = useAuth();
-  const [locations, setLocations] = useState([]);
-
-  function questionAskedHandler(e) {
-    e.preventDefault();
-    const location = {
-      name: e.target.locationName.value,
-      minCustomers: e.target.minCustomers.value,
-      maxCustomers: e.target.maxCustomers.value,
-      avgCookies: e.target.avgCookies.value,
-      id: locations.length,
-    };
-    setLocations([...locations, location]);
-  }
+  const { user, login, logout } = useAuth();
 
   return (
-    <>
-      <Head />
+    <div className='p-4'>
+      <Head>
+        <title>Cookie Stand Admin</title>
+      </Head>
 
-      <Header />
-
-      <main className=''>
-        {user ? (
-          <CreateForm questionAskedHandler={questionAskedHandler} />
-        ) : (
-          <LoginForm onLogin={login} />
-        )}
-        <ReportTable locations={locations} />
-      </main>
-
-      <Footer questionAskedHandler={questionAskedHandler} />
-    </>
-  );
-}
-
-function LoginForm({ onLogin }) {
-  async function handleSubmit(event) {
-    event.preventDefault();
-    onLogin(event.target.username.value, event.target.password.value);
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <fieldset autoComplete='off'>
-        <legend>Log In</legend>
-        <label htmlFor='username'>Username</label>
-        <input name='username' />
-        <label htmlFor='password'>Password</label>
-        <input type='password' name='password' />
-        <button>Log In</button>
-      </fieldset>
-    </form>
+      {user ? (
+        <CookieStandAdmin className='font-serif' login={login} />
+      ) : (
+        <LoginForm onLogin={login} />
+      )}
+    </div>
   );
 }
