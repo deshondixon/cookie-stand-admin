@@ -1,4 +1,10 @@
-# DESHON DIXON: LAB 39: Cookie Stand Admin Version 3
+# DESHON DIXON: LAB 41: Cookie Stand IV - Deployment
+
+Deployed Site: https://cookie-stand-admin-deshon.vercel.app/
+Deployed Backend: https://cookie-stand-api-deshon.vercel.app
+
+NEXT_PUBLIC_API_URL=https://cookie-stand-api-deshon.vercel.app
+NEXT_PUBLIC_RESOURCE_URL=https://cookie-stand-api-deshon.vercel.app/api/v1/cookie_stands/
 
 ## Getting Started
 
