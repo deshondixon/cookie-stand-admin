@@ -18,10 +18,7 @@ export default function CookieStandForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='w-1/2 p-2 mx-auto my-4 font-serif bg-green-300 border border-black shadow-md rounded-2xl shadow-gray-500'
-    >
+    <form onSubmit={handleSubmit} className='w-1/2 p-2 mx-auto my-4 '>
       <fieldset className=''>
         <legend className='py-3 text-4xl text-center'>
           Create Cookie Stand
@@ -31,7 +28,7 @@ export default function CookieStandForm() {
             Location:
           </label>
           <input
-            className='px-3 text-center border border-gray-500 rounded-md shadow-md'
+            className='px-3 text-center border'
             placeholder='location'
             name='location'
           />
@@ -42,7 +39,7 @@ export default function CookieStandForm() {
               Minimum Sale per Hour
             </label>
             <input
-              className='px-3 text-center border border-gray-500 rounded-md shadow-md'
+              className='px-3 text-center border'
               placeholder='minimum'
               name='minimum'
             />
@@ -52,7 +49,7 @@ export default function CookieStandForm() {
               Maximum Sale per Hour
             </label>
             <input
-              className='px-3 text-center border border-gray-500 rounded-md shadow-md'
+              className='px-3 text-center border'
               placeholder='maximum'
               name='maximum'
             />
@@ -62,14 +59,12 @@ export default function CookieStandForm() {
               Average Cookies per Sale
             </label>
             <input
-              className='px-3 text-center border border-gray-500 rounded-md shadow-md'
+              className='px-3 text-center border'
               placeholder='average'
               name='average'
             />
           </div>
-          <button className='py-4 text-xl text-black transition-all duration-200 bg-green-500 border border-black rounded-lg shadow-md cursor-pointer px-9 shadow-gray-500 hover:bg-red-500 hover:rounded-2xl'>
-            Create
-          </button>
+          <button className='py-4 text-xl'>Create</button>
         </section>
       </fieldset>
     </form>

@@ -5,7 +5,7 @@ export default function Header() {
   const { user, login } = useAuth();
 
   return (
-    <header className='flex items-center justify-between p-4 font-serif text-black bg-green-300'>
+    <header className='flex items-center justify-between p-4 text-black'>
       <h1 className='text-4xl'>Cookie Stand Admin</h1>
       <section>
         <button className='px-4 py-2 mx-5 text-2xl text-black bg-green-500 rounded-lg'>

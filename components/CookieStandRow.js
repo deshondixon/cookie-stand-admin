@@ -15,8 +15,8 @@ export default function CookieStandRow({ info, deleteStand }) {
     info.hourly_sales = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   }
   return (
-    <tr className='text-lg border border-black even:bg-green-500 odd:bg-green-300'>
-      <td className='flex items-center justify-between pl-4 mt-1 font-bold'>
+    <tr className='text-lg border'>
+      <td className='flex items-center justify-between pl-4 '>
         {info.location}
         <button onClick={clickHandler}>
           {
