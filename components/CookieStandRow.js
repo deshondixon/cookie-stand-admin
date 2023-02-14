@@ -37,14 +37,7 @@ export default function CookieStandRow({ info, deleteStand }) {
           }
         </button>
       </td>
-      {info.hourly_sales.map((slot, index) => (
-        <td className='px-2 py-1 border border-black' key={index}>
-          {slot}
-        </td>
-      ))}
-      <td className='px-2 py-1 border border-black'>
-        {info.hourly_sales.reduce((num, sum) => num + sum, 0)}
-      </td>
+      <td></td>
     </tr>
   );
 }
