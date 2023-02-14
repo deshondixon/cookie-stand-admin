@@ -4,7 +4,7 @@ import CookieStandAdmin from '/components/CookieStandAdmin';
 import LoginForm from '/components/LoginForm';
 
 export default function Home() {
-  const { user, login, logout } = useAuth();
+  const { user, login } = useAuth();
 
   return (
     <div className='p-4'>
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       {user ? (
-        <CookieStandAdmin className='font-serif' login={login} />
+        <CookieStandAdmin className='font-serif' />
       ) : (
         <LoginForm onLogin={login} />
       )}

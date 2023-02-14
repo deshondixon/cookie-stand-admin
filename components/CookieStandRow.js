@@ -3,10 +3,17 @@ export default function CookieStandRow({ info, deleteStand }) {
     deleteStand(info.id);
   }
 
+  if (info === undefined || info === null) {
+    return (
+      <h2 className='mx-auto my-4 text-2xl text-center'>
+        No Cookie Stands Available
+      </h2>
+    );
+  }
+
   if (info.hourly_sales.length == 0) {
     info.hourly_sales = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   }
-
   return (
     <tr className='text-lg border border-black even:bg-green-500 odd:bg-green-300'>
       <td className='flex items-center justify-between pl-4 mt-1 font-bold'>

@@ -1,15 +1,19 @@
-import Link from 'next/link';
+import { useAuth } from '/context/auth';
 
-export default function Header(props) {
+export default function Header() {
+  const { user, login } = useAuth();
+
   return (
-    <header className='flex items-center justify-between p-4 text-4xl bg-green-400 text-black-50'>
-      <h1 className='text-3xl font-medium'>Cookie Stand Admin</h1>
-      <Link
-        href='/Overview'
-        className='w-24 text-xl font-medium text-center rounded-lg bg-gray-50'
-      >
-        Overview
-      </Link>
+    <header className='flex items-center justify-between p-4 font-serif text-black bg-green-300'>
+      <h1 className='text-4xl'>Cookie Stand Admin</h1>
+      <section>
+        <button className='px-4 py-2 mx-5 text-2xl text-black bg-green-500 rounded-lg'>
+          {user.username}
+        </button>
+        <button className='px-4 py-2 mr-20 text-2xl text-white transition-all duration-200 bg-green-800 rounded-lg hover:bg-green-500 hover:text-black'>
+          Logout
+        </button>
+      </section>
     </header>
   );
 }
